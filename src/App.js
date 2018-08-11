@@ -3,17 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import Drag from './Drag'
 import moment from 'moment'
+import ReactLoading from 'react-loading';
+
 class App extends Component {
 constructor(props){
 super(props)
 
 this.state={
 historyData:[],
-day:8,
-width:420,
-height:300,
-x: 0,
-y: 0
+day:8
+
 
 }
 
@@ -49,11 +48,12 @@ componentDidMount(){
 
   render() {
 
-    const {day,historyData,height,width}=this.state
+    const {day,historyData}=this.state
     return (
       <div className="App">
 
-      { day!==1? <div>2</div>:<Drag  width={width} height={height}  historyData={historyData} /> }
+      { day!==1?     <ReactLoading type="balls" color="blue" height={100} width={100} />:<Drag   historyData={historyData} /> }
+
   
      
   
